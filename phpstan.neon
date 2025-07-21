@@ -1,5 +1,10 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
 parameters:
-	level: 8
-	paths:
-		- app
-		- tests
+    level: 8
+    phpVersion: 80400
+    paths:
+        - app
+        - tests
+        - database
