@@ -1,0 +1,26 @@
+name: Code Analysis
+on: [push]
+jobs:
+  pint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PHP with tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: pint
+      - name: Run Pint
+        run: composer install && ./vendor/bin/pint
+  phpstan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PHP with tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: phpstan
+      - name: Run PHPStan
+        run: composer install && ./vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G
+
