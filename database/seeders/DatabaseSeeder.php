@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PublicUserSeeder::class,
+            PlanetSeeder::class,
+            NirexPlanetSeeder::class,
         ]);
     }
 }
