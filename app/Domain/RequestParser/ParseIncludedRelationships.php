@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class ParseIncludedRelationships
 {
+    /**
+     * @param  array<string>  $default
+     * @return array<string>
+     */
     public static function fromRequest(Request $request, array $default = []): array
     {
         if (empty($request->input('include'))) {
