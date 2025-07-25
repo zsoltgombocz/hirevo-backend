@@ -4,6 +4,8 @@ includes:
 parameters:
     level: 8
     phpVersion: 80400
+    bootstrapFiles:
+        - _ide_helper_models.php
     paths:
         - app
         - tests
