@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * @mixin IdeHelperResource
+ * @mixin IdeHelperMaterial
  */
-class Resource extends Model
+class Material extends Model
 {
     protected $fillable = [
         'name', 'description',

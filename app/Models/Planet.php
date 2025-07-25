@@ -19,11 +19,11 @@ class Planet extends Model
     ];
 
     /**
-     * @return BelongsToMany<Resource, $this>
+     * @return BelongsToMany<Material, $this>
      */
-    public function resources(): BelongsToMany
+    public function materials(): BelongsToMany
     {
-        return $this->belongsToMany(Resource::class);
+        return $this->belongsToMany(Material::class);
     }
 
     /**

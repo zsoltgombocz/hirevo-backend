@@ -73,7 +73,30 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string $name
- * @property string $intensity
+ * @property string|null $description
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Planet> $planets
+ * @property-read int|null $planets_count
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Material newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Material newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Material query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Material whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Material whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Material whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Material whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Material whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperMaterial {}
+}
+
+namespace App\Models{
+/**
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $name
+ * @property \App\Domain\Phenomena\PhenomenaIntensity $intensity
  * @property float $occurrence_rate
  * @property string|null $description
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Planet> $planets
@@ -108,10 +131,10 @@ namespace App\Models{
  * @property-read int|null $entities_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Item> $items
  * @property-read int|null $items_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Phenomena> $phenomena
- * @property-read int|null $phenomena_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Resource> $resources
- * @property-read int|null $resources_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Material> $materials
+ * @property-read int|null $materials_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Phenomena> $phenomenas
+ * @property-read int|null $phenomenas_count
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Planet newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Planet newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Planet query()
@@ -127,29 +150,6 @@ namespace App\Models{
  */
 	#[\AllowDynamicProperties]
 	class IdeHelperPlanet {}
-}
-
-namespace App\Models{
-/**
- * @property int $id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string $name
- * @property string|null $description
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Planet> $planets
- * @property-read int|null $planets_count
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Resource newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Resource newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Resource query()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Resource whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Resource whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Resource whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Resource whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Resource whereUpdatedAt($value)
- * @mixin \Eloquent
- */
-	#[\AllowDynamicProperties]
-	class IdeHelperResource {}
 }
 
 namespace App\Models{

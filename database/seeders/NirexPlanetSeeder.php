@@ -70,7 +70,7 @@ class NirexPlanetSeeder extends Seeder
             ],
         ]);
 
-        $planet->resources()->createMany([
+        $planet->materials()->createMany([
             [
                 'name' => 'Crystalized Memory Dust',
                 'description' => 'Can temporarily enhance navigation and memory systems.',

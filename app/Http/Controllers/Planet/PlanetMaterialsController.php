@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Planet;
 
-use App\Http\Resources\ResourceResource;
+use App\Http\Resources\MaterialResource;
 use App\Models\Planet;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PlanetResourcesController
+class PlanetMaterialsController
 {
     public function __invoke(Planet $planet): JsonResource
     {
-        return ResourceResource::collection($planet->resources);
+        return MaterialResource::collection($planet->materials);
     }
 }

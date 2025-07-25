@@ -2,16 +2,16 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Resource;
+use App\Models\Material;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @mixin Resource
+ * @mixin Material
  */
-class ResourceResource extends JsonResource
+class MaterialResource extends JsonResource
 {
-    public function __construct(Resource $resource)
+    public function __construct(Material $resource)
     {
         parent::__construct($resource);
     }

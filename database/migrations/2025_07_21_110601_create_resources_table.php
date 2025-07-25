@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resources', function (Blueprint $table) {
+        Schema::create('materials', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
@@ -19,9 +19,9 @@ return new class extends Migration
             $table->text('description')->nullable()->default(null);
         });
 
-        Schema::create('planet_resource', function (Blueprint $table) {
+        Schema::create('material_planet', function (Blueprint $table) {
             $table->foreignId('planet_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('resource_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('material_id')->constrained()->cascadeOnDelete();
         });
     }
 

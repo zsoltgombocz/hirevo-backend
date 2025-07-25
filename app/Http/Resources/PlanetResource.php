@@ -30,7 +30,7 @@ class PlanetResource extends JsonResource
             'biome' => $this->biome,
             'description' => $this->description,
             'entities' => EntityResource::collection($this->whenLoaded(relationship: 'entities')),
-            'resources' => ResourceResource::collection($this->whenLoaded('resources')),
+            'materials' => MaterialResource::collection($this->whenLoaded('materials')),
             'items' => ItemResource::collection($this->whenLoaded('items')),
             'phenomenas' => PhenomenaResource::collection($this->whenLoaded('phenomenas')),
         ];

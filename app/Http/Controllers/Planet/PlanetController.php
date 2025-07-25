@@ -24,43 +24,11 @@ class PlanetController
     {
         $includeRelationships = ParseIncludedRelationships::fromRequest(
             request: $request,
-            default: ['entities', 'resources', 'items', 'phenomenas']
+            default: ['entities', 'materials', 'items', 'phenomenas']
         );
 
         return $planet
             ->load($includeRelationships)
             ->toResource();
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function resources(Planet $planet): JsonResource
-    {
-        return $planet->resources->toResourceCollection();
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function items(Planet $planet): JsonResource
-    {
-        return $planet->items->toResourceCollection();
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function entities(Planet $planet): JsonResource
-    {
-        return $planet->entities->toResourceCollection();
-    }
-
-    /**
-     * @throws \Throwable
-     */
-    public function phenomenas(Planet $planet): JsonResource
-    {
-        return $planet->phenomenas->toResourceCollection();
     }
 }
