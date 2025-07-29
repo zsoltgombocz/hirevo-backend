@@ -2,6 +2,7 @@ name: Publish Docker image
 
 on:
   release:
+    branch: [test]
     types: [published]
 
 jobs:
@@ -33,3 +34,11 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+  deploy:
+    needs: push_to_registry
+    name: "Deploy Image"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "SSH into server"
+        run: echo "SSH done"
