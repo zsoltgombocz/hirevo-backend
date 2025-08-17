@@ -1,8 +1,6 @@
 services:
     app:
-        build:
-            context: .
-            dockerfile: docker/php/Dockerfile
+        image: ghcr.io/zsoltgombocz/hirevo-backend:latest
         container_name: hirevo-backend
         working_dir: /var/www
         volumes:
