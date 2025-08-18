@@ -1,6 +1,6 @@
 services:
     app:
-        image: hirevo-local:latest
+        image: ghcr.io/zsoltgombocz/hirevo-backend:latest
         container_name: hirevo-backend
         working_dir: /var/www
         volumes:
