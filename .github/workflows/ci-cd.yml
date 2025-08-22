@@ -86,4 +86,5 @@ jobs:
             docker pull ghcr.io/${{ github.actor }}/hirevo-backend:latest
             docker compose down
             docker compose up -d
+            docker exec hirevo-backend chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
             docker exec hirevo-backend php artisan migrate --force
