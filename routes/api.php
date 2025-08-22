@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Actions\DisplayAppVersion;
 use App\Http\Controllers\Planet\PlanetController;
 use App\Http\Controllers\Planet\PlanetEntitiesController;
 use App\Http\Controllers\Planet\PlanetItemsController;
 use App\Http\Controllers\Planet\PlanetMaterialsController;
 use App\Http\Controllers\Planet\PlanetPhenomenasController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', DisplayAppVersion::class);
 
 Route::middleware(['auth:sanctum', 'ability:read'])->group(function () {
     Route::get('/planets', [PlanetController::class, 'index']);

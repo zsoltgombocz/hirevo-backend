@@ -83,8 +83,10 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd hirevo-backend
+            echo "${{ github.ref_name }}" >> version.json
             docker pull ghcr.io/${{ github.actor }}/hirevo-backend:latest
             docker compose down
             docker compose up -d
+            sleep 15
             docker exec hirevo-backend chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
             docker exec hirevo-backend php artisan migrate --force
