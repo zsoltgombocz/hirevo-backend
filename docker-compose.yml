@@ -10,17 +10,22 @@ services:
         depends_on:
             - mysql
 
-    nginx:
-        image: nginx:stable
-        container_name: nginx
+    caddy:
+        image: caddy:latest
+        restart: unless-stopped
+        depends_on:
+            - app
+        cap_add:
+            - NET_ADMIN
         ports:
             - "80:80"
             - "443:443"
+            - "443:443/udp"
         volumes:
-            - public:/var/www/public
-            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-        depends_on:
-            - app
+            - public:/var/www/public:ro
+            - ./Caddyfile:/etc/caddy/Caddyfile:ro
+            - caddy_data:/data
+            - caddy_config:/config
 
     mysql:
         env_file:
@@ -33,3 +38,5 @@ services:
 volumes:
     public:
     mysql_data:
+    caddy_data:
+    caddy_config:
