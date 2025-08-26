@@ -83,7 +83,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd hirevo-backend
-            echo "${{ github.ref_name }}" >> version.json
+            echo "${{ github.ref_name }}" > version.json
             docker pull ghcr.io/${{ github.actor }}/hirevo-backend:latest
             docker compose down
             docker compose up -d
