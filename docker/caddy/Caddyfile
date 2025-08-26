@@ -1,0 +1,14 @@
+{
+  email zsolti@hirevo.app
+}
+
+api.hirevo.app {
+  root * /var/www/public
+  encode gzip
+  php_fastcgi app:9000
+  file_server
+}
+
+http://38.242.156.4 {
+    respond 451
+}
